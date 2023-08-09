@@ -1,5 +1,6 @@
-import './globals.css'
+import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
+import { NavigationProvider } from '../contexts/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <NavigationProvider>
+        <Suspense>
+          <body className={inter.className}>{children}</body>
+        </Suspense>
+      </NavigationProvider>
     </html>
   )
 }
