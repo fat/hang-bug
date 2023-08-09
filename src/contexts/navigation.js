@@ -28,7 +28,6 @@ export const TrackLastViewed = ({
 }) => {
 	const setLastViewed = useContext(Context).setLastViewed;
 	const pathName = usePathname();
-	const router = useRouter();
 
 	useEffect(() => {
 		setLastViewed(
